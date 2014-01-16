@@ -18,14 +18,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       source /etc/profile.d/rvm.sh
       source /usr/local/rvm/scripts/rvm
       source /home/vagrant/.profile
-      export LANGUAGE=en_US.UTF-8
-      export LANG=en_US.UTF-8
-      export LC_ALL=en_US.UTF-8
+      echo 'export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8' > /etc/profile.d/pg.sh
       rvm install 2.0.0
       rvm use 2.0.0 --default
       rvmsudo gem install rails
-      sudo apt-get install postgresql libpq-dev
+      sudo apt-get -y install postgresql libpq-dev postgresql-contrib
       rvmsudo gem install pg 
+      
     EOS
   end
 end
