@@ -1,14 +1,15 @@
-<header class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <%= link_to "BookGen", '#', id: "logo" %>
+<header class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar-header">
+    <%= link_to "BookGen", '#', id: "logo", class: "navbar-text" %>
+  </div>
+  <div class="collapse navbar-collapse">    
       <nav>
-        <ul class="nav pull-right">
+        <ul class="nav navbar-nav">
           <li><%= link_to "Home", '#' %></li>
           <li><%= link_to "About", '#' %></li>
         </ul>
       </nav>
-    </div>
+    
   </div>
 </header>
   
