@@ -14,10 +14,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     shell.inline = <<-EOS
       sudo apt-get update
 
-      sudo add-apt-repository ppa:cassou/emacs
-
-
+    
       sudo apt-get -y install bash build-essential tmux vim git-core curl
+      sudo apt-get install nodejs
       curl -L https://get.rvm.io | bash -s stable
       source /etc/profile.d/rvm.sh
       source /usr/local/rvm/scripts/rvm
