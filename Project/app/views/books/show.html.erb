@@ -1,3 +1,12 @@
-<%= @book.name %>
-<%= @book.description %>
+<% provide(@book)%>
 
+<h2><%= @book.name %></h2>
+<ul>
+	<li>Author: <%= @book.author %></li>
+	<li>Edition: <%= @book.edition %></li>
+	<li>Publisher: <%= @book.publisher %></li>
+	<li>Status: <%= @book.status %></li>
+	<li>ISBN: <%= @book.isbn %></li>
+	<li>Description: <p><%= @book.description %></p></li>
+	
+</ul>
