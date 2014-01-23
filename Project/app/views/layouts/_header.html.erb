@@ -1,12 +1,13 @@
 <header class="navbar navbar-default navbar-fixed-top">
   <div class="navbar-header">
-    <%= link_to "BookGen", '#', id: "logo", class: "navbar-text" %>
+    <%= link_to "BookGen", '/', id: "logo", class: "navbar-text" %>
   </div>
   <div class="collapse navbar-collapse">    
       <nav>
         <ul class="nav navbar-nav">
-          <li><%= link_to "Home", '#' %></li>
-          <li><%= link_to "About", '#' %></li>
+          <li><%= link_to "Home", '/' %></li>
+          <li><%= link_to "Books", allbooks_path %></li>
+          <li><%= link_to "About", about_path %></li>
         </ul>
       </nav>
     
