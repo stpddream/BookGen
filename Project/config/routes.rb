@@ -1,6 +1,12 @@
 BookGen::Application.routes.draw do
-  get "users/new"
+  
+  resources :books
+  
+  root to: 'static_pages#home'
+  get "static_pages/home"
+  get "static_pages/about"
   get "welcome/hello"
+  get 'books', to: 'books#index', as: 'allbooks'
   
   get '/signup', to: 'users#new'
   # The priority is based upon order of creation: first created -> highest priority.
