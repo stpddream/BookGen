@@ -1,4 +1,4 @@
-class Books < ActiveRecord::Base
+class Book < ActiveRecord::Base
   
   validates :name, presence: true, length: { maximum: 50 }
   validates :isbn, presence: true, length: { maximum: 14 }

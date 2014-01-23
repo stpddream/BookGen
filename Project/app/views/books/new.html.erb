@@ -1,2 +1,30 @@
-<h1>Books#new</h1>
-<p>Find me in app/views/books/new.html.erb</p>
+<h1>Share a book</h1>
+<div class="row">
+	<div class="span6 offset3">
+		<%= form_for(@book) do |form| %>
+		  <%= form.label :name %>
+		  <%= form.text_field :name %>
+		
+		  <%= form.label :author %>
+		  <%= form.text_field :author %>
+		
+		  <%= form.label :publisher %>
+		  <%= form.text_field :publisher %>
+		
+		  <%= form.label :isbn %>
+		  <%= form.text_field :isbn %>
+		
+		  <%= form.label :edition %>
+		  <%= form.text_field :edition %>
+		
+		  <%= form.label :description %>
+		  <%= form.text_area :description %>
+		
+		  <%= form.submit "Share!", class: "btn btn-large btn-primary" %>
+		
+	    <% end %>
+		
+		
+	</div>
+</div>
+
