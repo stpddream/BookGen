@@ -5,31 +5,34 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "precise32"
-  config.vm.box_url = "http://files.vagrantup.com/precise32.box"
+  # All Vagrant configuration is done here. The most common configuration
+  # options are documented and commented below. For a complete reference,
+  # please see the online documentation at vagrantup.com.
+
+  # Every Vagrant virtual environment requires a box to build off of.
+  config.vm.box = "rails_dev"
+  config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/precise/current/precise-server-cloudimg-amd64-vagrant-disk1.box"
   config.vm.network :forwarded_port, guest: 3000, host: 3000
   config.vm.synced_folder "Project", "/home/vagrant/Project" 
   
-  config.vm.provision :shell do |shell|
-    shell.inline = <<-EOS
-      sudo apt-get update
-
-    
+  config.vm.provision :shell, :privileged => false, :inline =>
+  <<-EOS
+    sudo apt-get update
       sudo apt-get -y install bash build-essential tmux vim git-core curl
-      sudo apt-get install nodejs
-      curl -L https://get.rvm.io | bash -s stable
-      source /etc/profile.d/rvm.sh 
-      source /usr/local/rvm/scripts/rvm
-      source /home/vagrant/.profile
-      echo 'export LANGUAGE=en_US.UTF-8
-      export LANG=en_US.UTF-8
-      export LC_ALL=en_US.UTF-8' > /etc/profile.d/pg.sh
+      curl -L https://get.rvm.io | bash -s
+      source ~/.rvm/scripts/rvm
       rvm install 2.0.0
-      rvm use 2.0.0 --default
-      rvmsudo gem install rails
-      sudo apt-get -y install postgresql libpq-dev postgresql-contrib
-      rvmsudo gem install pg 
+      gem update --system 2.2.1
+      gem install rails --version 4.0.2
+      sudo apt-get install -y libxslt-dev libxml2-dev
+      sudo apt-get install -y postgresql
+      sudo apt-get install -y libpq-dev
+      sudo apt-get install -y openssl
+      sudo apt-get install -y nodejs
+      cd Project
+      bundle install
+      rake rails:update:bin
       
-    EOS
-  end
+  EOS
 end
+
