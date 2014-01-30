@@ -9,6 +9,7 @@ Project/db/*.sqlite3-journal
 
 Project/log/*.log
 Project/tmp
+Project/.idea/
 
 Project/bin
 
