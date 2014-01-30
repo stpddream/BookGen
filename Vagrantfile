@@ -7,7 +7,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "rails_dev"
   config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/precise/current/precise-server-cloudimg-amd64-vagrant-disk1.box"
   config.vm.network :forwarded_port, guest: 3000, host: 3000
-  config.vm.synced_folder "Project", "/home/vagrant/Project" 
+  config.vm.synced_folder "", "/home/vagrant/Project" 
   
   config.vm.provision :shell, :privileged => false, :inline =>
   <<-EOS
