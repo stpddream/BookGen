@@ -1,0 +1,7 @@
+<h1>All books</h1>
+
+<%= will_paginate @books %>
+<ul class="books">
+	<%= render partial: "book", collection: @books %>
+</ul>
+<%= will_paginate @books %>

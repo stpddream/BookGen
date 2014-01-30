@@ -1,17 +1,17 @@
 # Ignore bundler config.
-Project/.bundle
+.bundle
 
 # Ignore the default SQLite database.
-Project/db/*.sqlite3
-Project/db/*.sqlite3-journal
+db/*.sqlite3
+db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
 
-Project/log/*.log
-Project/tmp
-Project/.idea/
+log/*.log
+tmp
+.idea/
 
-Project/bin
+bin
 
 .vagrant
 *~
